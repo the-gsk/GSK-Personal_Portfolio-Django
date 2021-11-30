@@ -1,0 +1,1 @@
+web: gunicorn personal-porfolio.esgi --log-file -
