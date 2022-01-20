@@ -153,14 +153,10 @@ class HttpResponseBase:
 
     def serialize_headers(self):
         """HTTP headers as a bytestring."""
-        def to_bytes(val, encoding):
-            return val if isinstance(val, bytes) else val.encode(encoding)
-
-        headers = [
-            (to_bytes(key, 'ascii') + b': ' + to_bytes(value, 'latin-1'))
+        return b'\r\n'.join([
+            key.encode('ascii') + b': ' + value.encode('latin-1')
             for key, value in self.headers.items()
-        ]
-        return b'\r\n'.join(headers)
+        ])
 
     __bytes__ = serialize_headers
 
@@ -203,9 +199,9 @@ class HttpResponseBase:
         self.cookies[key] = value
         if expires is not None:
             if isinstance(expires, datetime.datetime):
-                if timezone.is_aware(expires):
-                    expires = timezone.make_naive(expires, timezone.utc)
-                delta = expires - expires.utcnow()
+                if timezone.is_naive(expires):
+                    expires = timezone.make_aware(expires, timezone.utc)
+                delta = expires - datetime.datetime.now(tz=timezone.utc)
                 # Add one second so the date matches exactly (a fraction of
                 # time gets lost between converting to a timedelta and
                 # then the date string).
@@ -402,6 +398,13 @@ class StreamingHttpResponse(HttpResponseBase):
         # See the `streaming_content` property methods.
         self.streaming_content = streaming_content
 
+    def __repr__(self):
+        return '<%(cls)s status_code=%(status_code)d%(content_type)s>' % {
+            'cls': self.__class__.__qualname__,
+            'status_code': self.status_code,
+            'content_type': self._content_type_for_repr,
+        }
+
     @property
     def content(self):
         raise AttributeError(
@@ -581,7 +584,7 @@ class JsonResponse(HttpResponse):
     An HTTP response class that consumes data to be serialized to JSON.
 
     :param data: Data to be dumped into json. By default only ``dict`` objects
-      are allowed to be passed due to a security flaw before EcmaScript 5. See
+      are allowed to be passed due to a security flaw before ECMAScript 5. See
       the ``safe`` parameter for more information.
     :param encoder: Should be a json encoder class. Defaults to
       ``django.core.serializers.json.DjangoJSONEncoder``.

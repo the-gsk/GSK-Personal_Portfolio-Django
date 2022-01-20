@@ -1,4 +1,4 @@
-#!/Users/gaurav/Documents/Projects/Django_Projects/Personal_Portfolio-Django/venv/bin/python3
+#!/Users/gaurav/Documents/GitHub/GSK-Personal_Portfolio-Django/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
