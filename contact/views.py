@@ -5,7 +5,9 @@ from .forms import UserSendMail
 from django.core.mail import send_mail
 # Create your views here.
 
-msg = '''Hi <|NAME|>,
+msg = '''[<|message|>]
+
+Hi <|NAME|>,
 
 Thanks so much for writting us about [|<topic|>].
 
@@ -27,8 +29,9 @@ def contact_us(request):
             useremail = request.POST.get('useremail')
             mail_data = SendMail(subject=subject, message=message, useremail=useremail)
             mail_data.save()
-            msge=msg.replace("<|NAME|>", useremail)
-            msgs=msge.replace("|<topic|>", subject)
+            msgm=msg.replace("<|message|>", message)
+            msgu=msgm.replace("<|NAME|>", useremail)
+            msgs=msgu.replace("|<topic|>", subject)
             send_mail(
                 subject,
                 msgs,
