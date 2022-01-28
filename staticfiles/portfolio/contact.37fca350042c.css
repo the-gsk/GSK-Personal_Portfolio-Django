@@ -1,0 +1,140 @@
+.containers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+}
+hr {
+  width: 80%;
+}
+h2 {
+  font-size: 20px;
+}
+.contact-items {
+  display: flex;
+  margin: 30px auto;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.customer-care,
+.write-us,
+.hire-me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  min-height: 330px;
+  margin: 30px auto;
+  padding: 35px 25px;
+  border-radius: 15px;
+  text-align: center;
+  min-width: 250px;
+}
+.input-message {
+  width: 100%;
+  height: 70px;
+  padding: 2px 15px;
+  margin-top: 10px;
+  display: inline-block;
+  border: 1px solid rgb(241, 8, 8);
+  border-radius: 15px;
+  box-sizing: border-box;
+  resize: none;
+}
+.input-to {
+  width: 100%;
+  padding: 2px 15px;
+  margin: 0;
+  display: inline-block;
+  border: 1px solid rgb(241, 8, 8);
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+.input-subject {
+  width: 100%;
+  padding: 2px 15px;
+  margin-top: 10px;
+  display: inline-block;
+  border: 1px solid rgb(241, 8, 8);
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+.customer-care {
+  height: 250px;
+  box-shadow: 0 15px 15px green;
+  border: 1px solid green;
+}
+.write-us {
+  height: 250px;
+  box-shadow: 0 15px 15px red;
+  border: 1px solid red;
+}
+.hire-me {
+  height: 250px;
+  box-shadow: 0 15px 15px blue;
+  border: 1px solid blue;
+}
+.link {
+  margin: auto;
+}
+
+.fa {
+  padding: 20px !important;
+  margin: 5px !important;
+  font-size: 30px !important;
+  width: 67px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  border-radius: 50% !important;
+}
+#fb {
+  background: #275cce;
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+}
+#twit {
+  background: #55acee !important;
+  color: white !important;
+}
+#git {
+  background: #6c7072;
+  color: white;
+}
+#in {
+  background: #007bb5;
+  color: white;
+}
+#insta {
+  background: #eb5c03;
+  color: white;
+}
+p {
+  font-size: 15px;
+}
+.buton {
+  padding: 8px 16px !important;
+  font-size: 17px;
+  border-radius: 25px;
+  border: none;
+  margin: 15px auto !important;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+}
+button:hover {
+  color: gray;
+}
+#write {
+  background: rgb(187, 15, 15);
+  box-shadow: 0 0 5px black;
+}
+#hire {
+  background: blue;
+  box-shadow: 0 0 5px black;
+}
+af {
+  font-size: 16px;
+}
+.hire-me a {
+  color: blue;
+  text-shadow: 0 0 2px rgba(76, 62, 158, 0.637);
+}

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'portfolio',
+    'contact'
 ]
 
 MIDDLEWARE = [
@@ -115,6 +116,14 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# SMTP Setup 
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'heavycoder.in@gmail.com'
+EMAIL_HOST_PASSWORD = os.getenv('Email_Password')
+EMAIL_USE_TLS = True
 
 
 # Static files (CSS, JavaScript, Images)

@@ -1,12 +1,10 @@
-{% extends "portfolio/base.html" %}
-
-{% load static %}
-
-{% block content %}
+{% extends "portfolio/base.html" %} {% load static %} {% block content %}
 
 <h1 id="blogtitle" class="font-weight-bold text-center">Blog</h1>
 
-<h3 class="text-center mb-5">Gaurav has written {{ blogs.count }} blog{{ blogs.count|pluralize }}</h3>
+<h3 class="text-center mb-5">
+  Gaurav has written {{ blogs.count }} blog{{ blogs.count|pluralize }}
+</h3>
 
 {% for blog in blogs %}
 <div class="row justify-content-center my-3">
@@ -18,6 +16,4 @@
     <h4>{{ blog.description|striptags|truncatechars:100 }}</h4>
   </div>
 </div>
-{% endfor %}
-
-{% endblock %}
+{% endfor %} {% endblock content %}

@@ -12,16 +12,16 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="{% static "portfolio/gsk.jpg" %}" alt="First slide">
+      <img class="d-block w-100" src="{% static " portfolio/gsk.jpg" %}" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="{% static "portfolio/gsk1.jpg" %}" alt="Second slide">
+      <img class="d-block w-100" src="{% static " portfolio/gsk1.jpg" %}" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="{% static "portfolio/gsk2.jpg" %}" alt="Third slide">
+      <img class="d-block w-100" src="{% static " portfolio/gsk2.jpg" %}" alt="Third slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="{% static "portfolio/gsk3.jpg" %}" alt="Third slide">
+      <img class="d-block w-100" src="{% static " portfolio/gsk3.jpg" %}" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -36,40 +36,50 @@
 <!-- end of slide  -->
 <!-- home text self -->
 <div>
-  <div >
+  <div>
     <h1 id="hometext" class="font-weight-bold" style="text-align:justify; font-size:25px ; margin-top:20px">
-     <a href=""> Gaurav Shankar Kumar </a> <span style="font-size: 25px;"> is Certified in Full Stack Web development with Django - React Stack.
-      Knowledge of SCM with programmatic experience. Strong analytical and problem-solving skills with experience on projects.
-      Focused on building scalable applications with best Industrial practices.😊</span>
+      <a href=""> Gaurav Shankar Kumar </a> <span style="font-size: 25px;"> is Certified in Full Stack Web development
+        with Django - React Stack.
+        Knowledge of SCM with programmatic experience. Strong analytical and problem-solving skills with experience on
+        projects.
+        Focused on building scalable applications with best Industrial practices.😊</span>
     </h1>
     <br>
     <br>
     <!-- skills sections -->
     <div>
-    <h2 id="hometext" class="font-weight-bold; font-size:30px">
-      <span style="float:left">My Skill</span>
-      <span style="float:right;">  <a href="{% url 'portfolio:projects_detail' %}"> <span style="font-weight: lighter;font-size:10px">Click for 👉🏼</span> My Projects </a> </span>
-    
-    </h2>
+      <h2 id="hometext" class="font-weight-bold; font-size:30px">
+        <span style="float:left">My Skill</span>
+        <span style="float:right;"> <a href="{% url 'portfolio:projects_detail' %}"> <span
+              style="font-weight: lighter;font-size:10px">Click for 👉🏼</span> My Projects </a> </span>
+
+      </h2>
     </div>
-    <br/>
-    <br/>
-    <br/>
+    <br />
+    <br />
+    <br />
     <div>
-      <div class="progress-bar progress-bar-striped progress-bar-animated" style="margin-top: 10px; width:60%; height:30px">Python</div>
-     <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="margin-top: 10px; width:70%; height:30px">Django</div>
-     <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" style="margin-top: 10px; width:60%; height:30px">Django Rest Frame Work</div>
-     <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" style="margin-top: 10px; width:50%; height:30px">JavaScript</div>
-     <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="margin-top: 10px; width:30%; height:30px">React</div>
-     <div class="progress-bar bg-secondary progress-bar-striped progress-bar-animated" style="margin-top: 10px; width:70%; height:30px">HTML & CSS</div>
-     <div class="progress-bar bg-dark progress-bar-striped progress-bar-animated" style="margin-top: 10px; width:80%; height:30px">GitHub</div>
+      <div class="progress-bar progress-bar-striped progress-bar-animated"
+        style="margin-top: 10px; width:60%; height:30px">Python</div>
+      <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+        style="margin-top: 10px; width:70%; height:30px">Django</div>
+      <div class="progress-bar bg-info progress-bar-striped progress-bar-animated"
+        style="margin-top: 10px; width:60%; height:30px">Django Rest Frame Work</div>
+      <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated"
+        style="margin-top: 10px; width:50%; height:30px">JavaScript</div>
+      <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
+        style="margin-top: 10px; width:30%; height:30px">React</div>
+      <div class="progress-bar bg-secondary progress-bar-striped progress-bar-animated"
+        style="margin-top: 10px; width:70%; height:30px">HTML & CSS</div>
+      <div class="progress-bar bg-dark progress-bar-striped progress-bar-animated"
+        style="margin-top: 10px; width:80%; height:30px">GitHub</div>
     </div>
-    
+
   </div>
 </div>
-<hr/>
-<hr/>
+<hr />
+<hr />
 
 </div>
 
-{% endblock %}
+{% endblock content %}

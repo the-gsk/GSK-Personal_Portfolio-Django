@@ -1,0 +1,80 @@
+{% extends "portfolio/base.html" %} {% load static %}
+{% block css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="{% static " portfolio/contact.css" %}">
+{% endblock css %}
+{% block content %}
+<footer>
+
+    <div class="containers">
+        <h1>Contact Us</h1>
+        <hr />
+        <h2>Have any questions? We'd love to hear from you</h2>
+        <div class="contact-items">
+            <div class="customer-care">
+                <h3>Follow Us</h3>
+                <div>
+                    <p>
+                        <a target="_blank" href="https://www.linkedin.com/in/gauravshankarkumar/" id="in"
+                            class="fa fa-linkedin"></a>
+                        <a target="_blank" href="https://github.com/gauravshankarkumar" id="git"
+                            class="fa fa-github"></a>
+                    </p>
+                    <p>
+                        <a target="_blank" href="https://www.facebook.com/gauravshankarkumar/" id="fb"
+                            class="fa fa-facebook"></a>
+                        <a target="_blank" href="https://www.instagram.com/gauravshankarkumar/" id="insta"
+                            class="fa fa-instagram"></a>
+                        <a target="_blank" href="https://twitter.com/gauravshankarkr" id="twit"
+                            class="fa fa-twitter"></a>
+                    </p>
+                </div>
+            </div>
+            <div class="write-us">
+                <h3>Write Us</h3>
+
+                <form action="" method="post">
+                    {% csrf_token %} {{form.useremail}}
+
+                    <!-- <input -->
+                    <!-- type="email" -->
+                    <!-- name="sender" -->
+                    <!-- placeholder="Write your Mail ID" -->
+                    <!-- class="input-to" -->
+                    <!-- /> -->
+                    {{form.subject}}
+
+                    <!-- <input -->
+                    <!-- type="text" -->
+                    <!-- name="subject" -->
+                    <!-- placeholder="Write your Subject" -->
+                    <!-- class="input-subject" -->
+                    <!-- /> -->
+                    {{form.message}}
+
+                    <!-- <textarea -->
+                    <!-- name="message" -->
+                    <!-- placeholder="Write something.." -->
+                    <!-- class="input-message" -->
+                    <!-- ></textarea> -->
+                    <br />
+                    <button class="buton" onclick="myFunction()" id="write">{{messages}}</button>
+                </form>
+
+                <!-- <a href="./contact-form.html"> <button id="write">Write</button></a>  u-->
+            </div>
+
+            <div class="hire-me">
+                <h3>For Hire Me</h3>
+                <p>Get in touch with me for Hiring</p>
+                <a href="tel:+91-9421652506" cm_dontconvertlink>
+                    <button class="buton" id="hire">Call Me</button></a>
+                <a class="link" target="_blank"
+                    href="https://drive.google.com/file/d/1zD47wQAYFLg5swhtG3G5OnYljPIWCXkx/view?usp=sharing">Download
+                    Resume</a>
+                <a class="link" href="mailto:gauravshankarkumar@gmail.com">Email us</a>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}
