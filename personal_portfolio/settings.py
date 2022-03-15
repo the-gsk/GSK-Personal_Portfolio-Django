@@ -125,7 +125,7 @@ EMAIL_USE_SSL = False
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'heavycoder.in@gmail.com'
 EMAIL_HOST_PASSWORD = os.getenv('Email_Password')
-DEFAULT_FROM_EMAIL = 'default from email'
+
 
 
 # Static files (CSS, JavaScript, Images)
