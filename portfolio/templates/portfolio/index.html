@@ -5,21 +5,28 @@
 	{% include 'portfolio/components/head.html' %}
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-    <a href="components.html" class="btn btn-primary btn-component" data-spy="affix" data-offset-top="600"><i class="ti-shift-left-alt"></i> Components</a>
+    {% comment %} <a href="components.html" class="btn btn-primary btn-component" data-spy="affix" data-offset-top="600"><i class="ti-shift-left-alt"></i> Components</a> {% endcomment %}
     
     {% include 'portfolio/components/header.html' %}
     {% include 'portfolio/components/nav.html' %}
     {% include 'portfolio/components/home.html' %}
     {% include 'portfolio/section/resume.html' %}
-    {% include 'portfolio/section/center1.html' %}
-    {% include 'portfolio/section/my_service.html' %}
-    {% include 'portfolio/section/pack_pricing.html' %}
-    {% include 'portfolio/section/center2.html' %}
+    {% comment %} {% include 'portfolio/section/center1.html' %} {% endcomment %}
+    {% comment %} {% include 'portfolio/section/my_service.html' %} {% endcomment %}
+    {% comment %} {% include 'portfolio/section/pack_pricing.html' %} {% endcomment %}
+    {% comment %} {% include 'portfolio/section/center2.html' %} {% endcomment %}
     {% include 'portfolio/section/portfolio.html' %}
     {% include 'portfolio/section/blog_news.html' %}
     {% include 'portfolio/components/contact_us.html' %}
     {% include 'portfolio/components/footer.html' %}
 	{% include 'portfolio/components/scripts.html' %}
+    {% if messages %}
+    {% for message in messages %}
+    <script>
+        alert ("{{message}}");
+    </script>
+    {% endfor %}
+    {% endif %}
 
 </body>
 </html>

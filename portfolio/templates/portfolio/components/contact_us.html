@@ -7,15 +7,16 @@
             <div class="col-lg-8">
                 <div class="contact-form-card">
                     <h4 class="contact-title">Send a message</h4>
-                    <form action="">
+                    <form action="" method="post">
+                        {% csrf_token %}
                         <div class="form-group">
-                            <input  class="form-control" type="text" placeholder="Name *" required>
+                            <input  class="form-control" type="text" name="user_name" placeholder="Name *" required>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="email" placeholder="Email *" required>
+                            <input class="form-control" type="email" name="user_email" placeholder="Email *" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" id=" placeholder="Message *" rows="7" required></textarea>
+                            <textarea class="form-control" id="" name="user_message" placeholder="Message *" rows="7" required></textarea>
                         </div>
                         <div class="form-group ">
                             <button type="submit" class="form-control btn btn-primary" >Send Message</button>
@@ -31,7 +32,7 @@
                             <i class="ti-mobile icon-md"></i>
                         </div>
                         <div class="col-10 ">
-                            <h6 class="d-inline">Phone : <br> <span class="text-muted">+ (123) 456-789</span></h6>
+                            <h6 class="d-inline">Phone : <br> <span class="text-muted">+ (91) 9421652506</span></h6>
                         </div>
                     </div>
                     <div class="row mb-2">
@@ -39,7 +40,7 @@
                             <i class="ti-map-alt icon-md"></i>
                         </div>
                         <div class="col-10">
-                            <h6 class="d-inline">Address :<br> <span class="text-muted">12345 Fake ST NoWhere AB Country.</span></h6>
+                            <h6 class="d-inline">Address :<br> <span class="text-muted">Sonbarsa, Bihar, India.</span></h6>
                         </div>
                     </div>
                     <div class="row mb-2">
@@ -47,15 +48,15 @@
                             <i class="ti-envelope icon-md"></i>
                         </div>
                         <div class="col-10">
-                            <h6 class="d-inline">Email :<br> <span class="text-muted">info@website.com</span></h6>
+                            <h6 class="d-inline">Email :<br> <span class="text-muted">gauravshankarkumar@gmail.com</span></h6>
                         </div>
                     </div>
                     <ul class="social-icons pt-4">
-                        <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-facebook" aria-hidden="true"></i></a></li>
-                        <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-twitter" aria-hidden="true"></i></a></li>
-                        <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-google" aria-hidden="true"></i></a></li>
-                        <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-instagram" aria-hidden="true"></i></a></li>
-                        <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-github" aria-hidden="true"></i></a></li>
+                        <li class="social-item"><a class="social-link text-dark" href="https://www.facebook.com/gauravshankarkumar"><i class="ti-facebook" aria-hidden="true"></i></a></li>
+                        <li class="social-item"><a class="social-link text-dark" href="https://twitter.com/gauravshankarkr"><i class="ti-twitter" aria-hidden="true"></i></a></li>
+                        <li class="social-item"><a class="social-link text-dark" href="https://www.linkedin.com/in/gauravshankarkumar/"><i class="ti-linkedin" aria-hidden="true"></i></a></li>
+                        <li class="social-item"><a class="social-link text-dark" href="https://www.instagram.com/gauravshankarkumar/"><i class="ti-instagram" aria-hidden="true"></i></a></li>
+                        <li class="social-item"><a class="social-link text-dark" href="https://github.com/gauravshankarkumar"><i class="ti-github" aria-hidden="true"></i></a></li>
                     </ul> 
                 </div>
             </div>
