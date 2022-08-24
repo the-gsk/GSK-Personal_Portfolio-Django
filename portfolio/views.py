@@ -3,7 +3,7 @@ from .models import Project
 
 # Create your views here.
 def home(request):
-    return render (request,'portfolio/home.html')
+    return render (request,'portfolio/index.html')
 
 
 def projects(request):
