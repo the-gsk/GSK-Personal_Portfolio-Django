@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k4)c_fuusn07&^=rjlytdu(77&^)1v-oq0&1npoy_ca^$_xs7r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['gskportfolio.herokuapp.com','127.0.0.1','www.heavycoder.in','heavycoder.in']
+ALLOWED_HOSTS = ['gskportfolio.herokuapp.com','127.0.0.1','www.heavycoder.in','heavycoder.in','*']
 
 
 # Application definition
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'portfolio',
-    'contact'
+    'contact',
+    'media'
 ]
 
 MIDDLEWARE = [
@@ -135,7 +136,7 @@ EMAIL_HOST_PASSWORD = os.getenv('Email_Password')
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),os.path.join(BASE_DIR / 'media'))
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
