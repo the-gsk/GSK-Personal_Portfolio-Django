@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k4)c_fuusn07&^=rjlytdu(77&^)1v-oq0&1npoy_ca^$_xs7r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['gskportfolio.herokuapp.com','127.0.0.1','www.heavycoder.in','heavycoder.in']
 
@@ -51,6 +51,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'portfolio.middelware.First',
+    # 'portfolio.middelware.Second',
+    # 'portfolio.middelware.Third',
 ]
 
 ROOT_URLCONF = 'personal_portfolio.urls'

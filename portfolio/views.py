@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Project
+from .models import Project,ProjectImage
 from contact.models import SendMail
 from django.core.mail import send_mail
 from django.contrib import messages
@@ -22,6 +22,10 @@ Gaurav Shankar Kumar
 # Create your views here.
 def home(request):
     context = {}
+    all_projects = Project.objects.filter(heading=True)
+    all_projects_images = ProjectImage.objects.all()
+    context['all_projects'] = all_projects
+    context['all_projects_images'] = all_projects_images
     if request.POST:
         user_name = request.POST.get('user_name')
         message = request.POST.get('user_message')
@@ -41,10 +45,12 @@ def home(request):
         context['mail_success'] = True
         messages.success(request,f'Your Email Sent Successfully!')
         return redirect ('portfolio:new_home')
+    
     return render (request,'portfolio/index.html',context)
 
 def old_home(request):
     return render (request,'portfolio/home.html')
+    # return render (request,'portfolio/components.html')
 
 
 def projects(request):

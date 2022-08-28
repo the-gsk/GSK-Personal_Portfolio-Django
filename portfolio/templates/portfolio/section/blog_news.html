@@ -2,14 +2,15 @@
 
 <section class="section" id="blog">
     <div class="container">
-        <h2 class="mb-5">Latest <span class="text-danger">News</span></h2>
+        <h2 class="mb-5">Latest <span class="text-danger">Projects</span></h2>
         <div class="row">
+            {% for project in all_projects %}
             <div class="blog-card">
                 <div class="img-holder">
                     <img src="{% static 'portfolio/assets/imgs/blog1.jpg' %}" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
                 </div>
                 <div class="content-holder">
-                    <h6 class="title">Consectetur adipisicing elit</h6>
+                    <h6 class="title">{{project.title}}</h6>
 
                     <p class="post-details">
                         <a href="#">By: Admin</a>
@@ -17,16 +18,15 @@
                         <a href="#"><i class="ti-comment"></i> 123</a>
                     </p>
                     
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nesciunt qui sit velit delectus voluptates, repellat ipsum culpa id deleniti. Rerum debitis facilis accusantium neque numquam mollitia modi quasi distinctio.</p>
-
-                    <p><b>Necessitatibus nihil impedit! Ex nisi eveniet, dolor aliquid consequuntur repudiandae.</b></p>
-                    <p>Magnam in repellat enim harum omnis aperiam! Explicabo illo, commodi, dolor blanditiis cupiditate harum nisi vero accusamus laudantium voluptatibus dolores quae obcaecati.</p>
+                    <p>{{project.description}}</p>
 
                     <a href="#" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
                 </div>
-            </div><!-- end of blog wrapper -->
+            </div>
+            {% endfor %}
+            <!-- end of blog wrapper -->
 
-            <!-- blog-card -->
+            {% comment %} <!-- blog-card -->
             <div class="blog-card">
                 <div class="img-holder">
                     <img src="{% static 'portfolio/assets/imgs/blog2.jpg' %}" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
@@ -63,7 +63,7 @@
 
                     <a href="#" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
                 </div>
-            </div><!-- end of blog wrapper -->
+            </div><!-- end of blog wrapper --> {% endcomment %}
 
         </div>
     </div>
