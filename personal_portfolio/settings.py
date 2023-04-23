@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'blog',
     'portfolio',
     'contact',
-    'media'
+    'media',
+    'open_ai'
 ]
 
 MIDDLEWARE = [
