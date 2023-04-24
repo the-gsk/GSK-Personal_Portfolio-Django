@@ -19,6 +19,7 @@ import environ
 env = environ.Env()
 environ.Env.read_env()
 
+FEATURE_FLAG = True
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -30,7 +31,7 @@ import openai
 openai.api_key = env('OPEN_API_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('Debug')
+DEBUG = env.bool('Debug')
 
 ALLOWED_HOSTS = ['gskportfolio.herokuapp.com','127.0.0.1','www.heavycoder.in','heavycoder.in','*']
 
