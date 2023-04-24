@@ -12,6 +12,9 @@ def chatresponse(request):
     data = request.POST
     if data:
         question = data.get("question")
+        context['question'] = question
+        
+
         if question:
             model_engine = "text-davinci-003"
 
