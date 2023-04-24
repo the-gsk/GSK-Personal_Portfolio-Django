@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 # import openai library
 import openai
 
+
 # Set up the OpenAI API client
-openai.api_key = "your secret key"
 
 
 # Create your views here.
@@ -27,6 +27,7 @@ def chatresponse(request):
     # extracting useful part of response
             return_data = completion.choices[0].text
             context['return_data'] = return_data
+            print(completion)
 
     return render (request,'open_api/chat.html',context)
 
