@@ -9,10 +9,12 @@ import openai
 # Set up the OpenAI API client
 
 
-def get_best_match(question, threshold=0.5):
+def get_best_match(question, threshold=0.8):
     qa_dict = {
             "What is your name?": "My name is Indu 2.0." ,
+            "your name?": "My name is Indu 2.0." ,
             "Who is your father?": "My Father is Gaurav Shankar Kumar.",
+            "father name?": "My Father is Gaurav Shankar Kumar.",
             "What can you do?": "I can answer questions, write stories, and much more.",
             "How do you work?":  "I use advanced machine learning algorithms to understand and respond to natural language input.",
         }
