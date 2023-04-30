@@ -35,3 +35,24 @@ def chatresponse(request):
     return render (request,'open_api/chat.html',context)
 
 
+from django.http.response import JsonResponse
+import time
+def universal_response(request):
+    data = request.POST
+    question = data.get("question")
+    if question:
+        model_engine = "text-davinci-003"
+
+        completion = openai.Completion.create(
+            engine=model_engine,
+            prompt=question,
+            max_tokens=1024,
+            n=1,
+            stop=None,
+            temperature=0.5,
+        )
+        # extracting useful part of response
+        return_data = completion.choices[0].text
+
+        return JsonResponse(data = {'data':return_data})
+    return JsonResponse(data = {'data':'If you are Bad I am your DAD!'})

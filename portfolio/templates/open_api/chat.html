@@ -309,13 +309,20 @@
                 display: none !important;
             }
         }
+
+        .disabled {
+            pointer-events: none;
+            opacity: 0.5;
+            /* other styles as needed */
+        }
     </style>
+
 </head>
 
 <body>
 
     <div class="--dark-theme" id="chat">
-        <div class="chat__conversation-board">
+        <div class="chat__conversation-board" id="message_div">
             <div class="chat__conversation-board__message-container">
                 <div class="chat__conversation-board__message__person">
                     <div class="chat__conversation-board__message__person__avatar"><img
@@ -415,12 +422,66 @@
             </div>
             {% endif %}
         </div>
-        <form action="" method="post">
-            {% csrf_token %}
-            <div class="chat__conversation-panel">
-                <div class="chat__conversation-panel__container">
-                    
-                    <button class="chat__conversation-panel__button panel-item btn-icon emoji-button" disabled>
+        <div class="chat__conversation-panel" id="chat-pannel">
+            <div class="chat__conversation-panel__container">
+                <button class="chat__conversation-panel__button panel-item btn-icon emoji-button" disabled>
+                    <svg class="feather feather-smile sc-dnqmqq jxshSx" xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                        <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                        <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                    </svg>
+                </button>
+                <input class="chat__conversation-panel__input panel-item" name="question" id="caht-message"
+                    placeholder="Type a message..." />
+                <button class="chat__conversation-panel__button panel-item btn-icon send-message-button" type="button"
+                    onclick="myFunction()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true" data-reactid="1036">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Bind event listener to input box
+        $("#caht-message").keyup(function (event) {
+            // Check if Enter key is pressed
+            if (event.keyCode === 13) {
+                // Trigger button click event
+                myFunction();
+            }
+        })
+    });
+    function myFunction() {
+        const myElement = document.getElementById("chat-pannel");
+        myElement.classList.add("disabled");
+        var message = $("#caht-message").val();
+        document.getElementById("caht-message").value = '';
+        console.log('@@@', message)
+
+
+        var new_question = `<div class="chat__conversation-board__message-container reversed">
+                <div class="chat__conversation-board__message__person">
+                    <div class="chat__conversation-board__message__person__avatar"><img
+                            src="{% static 'portfolio/logo.jpg' %}" alt="User" /></div><span
+                        class="chat__conversation-board__message__person__nickname">User</span>
+                </div>
+                <div class="chat__conversation-board__message__context">
+                    <div class="chat__conversation-board__message__bubble"> <span>${message}</span>
+                    </div>
+                </div>
+                <div class="chat__conversation-board__message__options">
+                    <button class="btn-icon chat__conversation-board__message__option-button option-item emoji-button">
                         <svg class="feather feather-smile sc-dnqmqq jxshSx" xmlns="http://www.w3.org/2000/svg"
                             width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -430,22 +491,101 @@
                             <line x1="15" y1="9" x2="15.01" y2="9"></line>
                         </svg>
                     </button>
-                    <input class="chat__conversation-panel__input panel-item" name="question" placeholder="Type a message..." />
-                    <button class="chat__conversation-panel__button panel-item btn-icon send-message-button"
-                        type="submit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            aria-hidden="true" data-reactid="1036">
-                            <line x1="22" y1="2" x2="11" y2="13"></line>
-                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    <button class="btn-icon chat__conversation-board__message__option-button option-item more-button">
+                        <svg class="feather feather-more-horizontal sc-dnqmqq jxshSx" xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="1"></circle>
+                            <circle cx="19" cy="12" r="1"></circle>
+                            <circle cx="5" cy="12" r="1"></circle>
                         </svg>
                     </button>
                 </div>
-            </div>
-        </form>
+            </div>`;
 
-    </div>
+        document.getElementById("message_div").innerHTML += new_question;
+        var loading_message = `<div class="chat__conversation-board__message-container" id="loading_div">
+                <div class="chat__conversation-board__message__person">
+                    <div class="chat__conversation-board__message__person__avatar"><img
+                            src="{% static 'portfolio/gsk_logo.jpeg' %}" alt="gaurav" /></div><span
+                        class="chat__conversation-board__message__person__nickname">gaurav</span>
+                </div>
+                <div class="chat__conversation-board__message__context">
+                    <div class="chat__conversation-board__message__bubble"> <span>Please Wait !</span></div>
+                </div>
+                <div class="chat__conversation-board__message__options">
+                    <button class="btn-icon chat__conversation-board__message__option-button option-item emoji-button">
+                        <svg class="feather feather-smile sc-dnqmqq jxshSx" xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                        </svg>
+                    </button>
+                    <button class="btn-icon chat__conversation-board__message__option-button option-item more-button">
+                        <svg class="feather feather-more-horizontal sc-dnqmqq jxshSx" xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="1"></circle>
+                            <circle cx="19" cy="12" r="1"></circle>
+                            <circle cx="5" cy="12" r="1"></circle>
+                        </svg>
+                    </button>
+                </div>
+            </div>`;
+        document.getElementById("message_div").innerHTML += loading_message;
+        $("#message_div").scrollTop($("#message_div")[0].scrollHeight);
 
-</body>
+        $.ajax({
+            'url': "/ai/universal_response/",
+            'method': "POST",
+            'data': {
+                'csrfmiddlewaretoken': '{{csrf_token}}',
+                'question': message
+            },
+            'success': function (res) {
+                var retur_message = `<div class="chat__conversation-board__message-container">
+                <div class="chat__conversation-board__message__person">
+                    <div class="chat__conversation-board__message__person__avatar"><img
+                            src="{% static 'portfolio/gsk_logo.jpeg' %}" alt="gaurav" /></div><span
+                        class="chat__conversation-board__message__person__nickname">gaurav</span>
+                </div>
+                <div class="chat__conversation-board__message__context">
+                    <div class="chat__conversation-board__message__bubble"> <span>${res.data}</span></div>
+                </div>
+                <div class="chat__conversation-board__message__options">
+                    <button class="btn-icon chat__conversation-board__message__option-button option-item emoji-button">
+                        <svg class="feather feather-smile sc-dnqmqq jxshSx" xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                        </svg>
+                    </button>
+                    <button class="btn-icon chat__conversation-board__message__option-button option-item more-button">
+                        <svg class="feather feather-more-horizontal sc-dnqmqq jxshSx" xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="1"></circle>
+                            <circle cx="19" cy="12" r="1"></circle>
+                            <circle cx="5" cy="12" r="1"></circle>
+                        </svg>
+                    </button>
+                </div>
+            </div>`;
+                const myDiv = document.getElementById("loading_div");
+                myDiv.remove();
+                document.getElementById("message_div").innerHTML += retur_message;
+                $("#message_div").scrollTop($("#message_div")[0].scrollHeight);
+                myElement.classList.remove("disabled");
+            }
+        })
+    }
+
+</script>
 
 </html>

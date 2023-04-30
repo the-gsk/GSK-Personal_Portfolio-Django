@@ -6,5 +6,6 @@ app_name= 'open_ai'
 
 urlpatterns = [
     path('chat/', views.chatresponse, name='ai-chat'),
+    path('universal_response/', views.universal_response, name='universal_response')
 
 ]
