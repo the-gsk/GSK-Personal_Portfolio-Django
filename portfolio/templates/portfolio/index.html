@@ -25,21 +25,7 @@
     <script>
         alert ("{{message}}");
     </script>
-    <script>
-        $(document).ready(function() {
-          // Get the image element
-          var img = $('img');
-          
-          // Get the original src attribute value
-          var originalSrc = img.attr('src');
-          
-          // Replace /media/ with /static/ in the src attribute value
-          var newSrc = originalSrc.replace('/media/', '/static/');
-          
-          // Update the src attribute with the new value
-          img.attr('src', newSrc);
-        });
-        </script>
+    
     {% endfor %}
     {% endif %}
 

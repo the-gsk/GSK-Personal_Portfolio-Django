@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <!-- core  -->
 <script src="{% static 'portfolio/assets/vendors/jquery/jquery-3.4.1.js' %}"></script>
 <script src="{% static 'portfolio/assets/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
@@ -15,3 +16,16 @@
 
 <!-- JohnDoe js -->
 <script src="{% static 'portfolio/assets/js/johndoe.js' %}"></script>
+
+<script>
+    console.log('@@@@')
+    $('img[src*="/media/"]').each(function() {
+        console.log('@@@@',this)
+
+
+        var src = $(this).attr('src');
+        src = src.replace('/media/', '/static/');
+        $(this).attr('src', src);
+      });
+      
+    </script>
