@@ -20,9 +20,6 @@
 <script>
     console.log('@@@@')
     $('img[src*="/media/"]').each(function() {
-        console.log('@@@@',this)
-
-
         var src = $(this).attr('src');
         src = src.replace('/media/', '/static/');
         $(this).attr('src', src);
