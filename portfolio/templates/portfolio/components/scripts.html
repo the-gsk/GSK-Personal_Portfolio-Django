@@ -18,7 +18,6 @@
 <script src="{% static 'portfolio/assets/js/johndoe.js' %}"></script>
 
 <script>
-    console.log('@@@@')
     $('img[src*="/media/"]').each(function() {
         var src = $(this).attr('src');
         src = src.replace('/media/', '/static/');
