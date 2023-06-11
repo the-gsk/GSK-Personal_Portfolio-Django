@@ -28,6 +28,7 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('contact/', include('contact.urls')),
     path('ai/', include('open_ai.urls')),
+    path('api/', include('web_api.urls')),
 
 
     

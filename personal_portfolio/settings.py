@@ -49,7 +49,9 @@ INSTALLED_APPS = [
     'portfolio',
     'contact',
     'media',
-    'open_ai'
+    'open_ai',
+    'web_api',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -61,12 +63,21 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     # 'portfolio.middelware.First',
     # 'portfolio.middelware.Second',
     # 'portfolio.middelware.Third',
 ]
 
 ROOT_URLCONF = 'personal_portfolio.urls'
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = [
+    'http://127.0.0.1:5500',
+    'https://gsk.heavycoder.in',
+]
+
 
 TEMPLATES = [
     {
