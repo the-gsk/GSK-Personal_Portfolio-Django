@@ -76,10 +76,9 @@ def universal_response(request):
 
 @csrf_exempt
 def send_email(request):
-    print('@@@@@@@',request.POST)
     try:
         if request.POST:
-            user_name = request.POST.get('user_names')
+            user_name = request.POST.get('user_name')
             message = request.POST.get('user_message')
             _from = 'heavycoder.in@gmail.com'
             useremail = request.POST.get('user_email')
@@ -96,5 +95,5 @@ def send_email(request):
             )
             return JsonResponse(data = {'data': "Your Email Sent Successfully!"},status=200)
     except Exception as e:
-        return JsonResponse(data = {'data':'If you are Bad I am your DAD!'},status=400)
+        return JsonResponse(data = {'data': f"{e}"},status=200)
 
